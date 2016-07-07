@@ -7,7 +7,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/NiKu/Documents/KurtMainFolder/Programmierung/NeuralNet/main.cpp</file>
+            <file>file:/Users/kurtnistelberger/Projects/NeuralNet/main.cpp</file>
+            <file>file:/Users/kurtnistelberger/Projects/NeuralNet/Neuron.cpp</file>
+            <file>file:/Users/kurtnistelberger/Projects/NeuralNet/Neuron.h</file>
+            <file>file:/Users/kurtnistelberger/Projects/NeuralNet/Net.cpp</file>
+            <file>file:/Users/kurtnistelberger/Projects/NeuralNet/Net.h</file>
         </group>
     </open-files>
 </project-private>
