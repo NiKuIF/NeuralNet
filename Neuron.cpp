@@ -1,8 +1,19 @@
 
 #include "Neuron.h"
 
-double Neuron::eta = 0.15;
-double Neuron::alpha = 0.5;
+Neuron::Neuron(unsigned numOutputs, unsigned myIndex){
+    
+    //define values
+    eta = 0.15;
+    alpha = 0.5;
+    
+    for(unsigned c = 0; c < numOutputs; ++c)
+    {
+        m_outputWeights.push_back(Connection());
+        m_outputWeights.back().weight = randomWeight();
+    }
+    m_myIndex = myIndex;  
+}
 
 void Neuron::updateInputWeights(Layer& prevLayer)
 {
@@ -69,13 +80,4 @@ void Neuron::feedForward(Layer &prevLayer)
     }
     
     m_outputVal = Neuron::transferFunction(sum);  
-}
-
-Neuron::Neuron(unsigned numOutputs, unsigned myIndex){
-    for(unsigned c = 0; c < numOutputs; ++c)
-    {
-        m_outputWeights.push_back(Connection());
-        m_outputWeights.back().weight = randomWeight();
-    }
-    m_myIndex = myIndex;  
 }

@@ -6,6 +6,24 @@
 
 #include "Net.h"
 
+Net::Net(const std::vector<unsigned> topology){
+    
+    unsigned numLayers = topology.size();
+    for(unsigned layerNum = 0; layerNum < numLayers; ++layerNum)
+    {
+        m_layers.push_back(Layer());
+        unsigned numOutputs = (layerNum == topology.size() - 1) ? 0 : topology[layerNum +1];
+        
+        // new layer, fill it with neurons
+        for(unsigned neuronNum = 0; neuronNum <= topology[layerNum]; neuronNum++){
+            m_layers.back().push_back(Neuron(numOutputs, neuronNum));
+            std::cout << "Made a Neuron" << std::endl;
+        }      
+    }
+    
+    m_layers.back().back().setOutputVal(1.0); // for the bias
+}
+
 void Net::getResults(std::vector<double>  &resultVals) const
 {
     resultVals.clear();   
@@ -77,22 +95,4 @@ void Net::feedForward(const std::vector<double> &inputVals)
             m_layers[layerNum][n].feedForward(prevLayer);
         }
     }  
-}
-
-Net::Net(const std::vector<unsigned> topology){
-    
-    unsigned numLayers = topology.size();
-    for(unsigned layerNum = 0; layerNum < numLayers; ++layerNum)
-    {
-        m_layers.push_back(Layer());
-        unsigned numOutputs = layerNum == topology.size() - 1 ? 0 : topology[layerNum +1];
-        // new layer, fill it with neurons
-    
-        for(unsigned neuronNum = 0; neuronNum <= topology[layerNum]; neuronNum++){
-            m_layers.back().push_back(Neuron(numOutputs, neuronNum));
-            std::cout << "Made a Neuron" << std::endl;
-        }      
-    }
-    
-    m_layers.back().back().setOutputVal(1.0); // for the bias
 }

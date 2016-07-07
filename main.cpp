@@ -54,12 +54,10 @@ int main(int argc, char** argv) {
     std::vector<double> output01;
     output01.push_back(0.0);
     
-    
-    std::vector<unsigned> topology;
-
     // for a AND-Gate a  2 1 Topology would be enough
     
     // simple 2 3 1 Topology
+    std::vector<unsigned> topology;
     topology.push_back(2); 
     topology.push_back(3); 
     topology.push_back(1); 
@@ -67,18 +65,11 @@ int main(int argc, char** argv) {
     Net myNet(topology);
     
     std::vector<double> inputVals, targetVals, resultVals;
-    int trainingPass = 0;
     
     int while_counter = 1;
-    while (true){
-       ++ trainingPass;
-       std::cout << std::endl << "Pass " << trainingPass;
-       
-       ++while_counter;
-       
-       if(while_counter > 2000){
-           break;
-       }
+    for(int i = 0; i < 2000; i++ ){
+    
+        std::cout << std::endl << "Pass " << i;
        
        if(while_counter%4 == 0){
            inputVals = input11;
@@ -111,9 +102,7 @@ int main(int argc, char** argv) {
        std::cout << "Net recent average error: " << myNet.getRecentAverageError() << std::endl;
           
     }
-
-    std::cout << std::endl << "Done" << std::endl;
-    
+ 
     return 0;
 }
 
