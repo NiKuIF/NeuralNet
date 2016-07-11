@@ -54,7 +54,7 @@ int main(int argc, char** argv) {
     std::vector<double> output01;
     output01.push_back(0.0);
     
-    // for a AND-Gate a  2 1 Topology would be enough
+    // for a AND-Gate a 2 1 Topology would be enough
     
     // simple 2 3 1 Topology
     std::vector<unsigned> topology;
@@ -66,20 +66,19 @@ int main(int argc, char** argv) {
     
     std::vector<double> inputVals, targetVals, resultVals;
     
-    int while_counter = 1;
-    for(int i = 0; i < 2000; i++ ){
+    for(int i = 0; i < 2; i++ ){
     
-        std::cout << std::endl << "Pass " << i;
+        std::cout << std::endl << "Pass " << i <<  std::endl;
        
-       if(while_counter%4 == 0){
+       if(i%4 == 0){
            inputVals = input11;
            targetVals = output11;
        }
-       else if(while_counter%3 == 0) {          
+       else if(i%3 == 0) {          
            inputVals = input10;
            targetVals = output10;
        }
-       else if(while_counter%2 == 0){
+       else if(i%2 == 0){
            inputVals = input01;
            targetVals = output01;
        }

@@ -41,8 +41,9 @@ public:
     void updateInputWeights(Layer &prevLayer);
     
 private:  
-    static double eta;
-    static double alpha;
+    double eta;
+    double alpha;
+    
     static double transferFunction(double x);
     static double transferFunctionDerivative(double x);
     static double randomWeight(void) { return rand()/double(RAND_MAX);}
