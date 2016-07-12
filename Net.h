@@ -30,6 +30,8 @@ public:
     void getResults(std::vector<double>  &resultVals) const;
     double getRecentAverageError() const {return m_recentAverangeError; }
     
+    void printAllConnections();
+    
 private:
     std::vector<Layer> m_layers;    
     double m_error;

@@ -40,9 +40,18 @@ public:
     void calcHiddenGradients(const Layer &nextLayer);
     void updateInputWeights(Layer &prevLayer);
     
+    // make public, so that I can print it easily
+    std::vector<Connection> m_outputWeights;
+    
 private:  
     double eta;
-    double alpha;
+    /*
+     0.0 - slow learner
+     0.2 - medium learner
+     1.0 - reckless learner
+     */
+    
+    double alpha; // multiplier of last weight change (momentum)
     
     static double transferFunction(double x);
     static double transferFunctionDerivative(double x);
@@ -51,7 +60,6 @@ private:
     double sumDOW(const Layer &nextLayer) const;
     
     double m_outputVal;
-    std::vector<Connection> m_outputWeights;
     unsigned m_myIndex;
     double m_gradient;
 };

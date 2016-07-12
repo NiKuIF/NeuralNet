@@ -66,7 +66,7 @@ int main(int argc, char** argv) {
     
     std::vector<double> inputVals, targetVals, resultVals;
     
-    for(int i = 0; i < 2; i++ ){
+    for(int i = 0; i < 2000; i++ ){
     
         std::cout << std::endl << "Pass " << i <<  std::endl;
        
@@ -98,9 +98,12 @@ int main(int argc, char** argv) {
        
        myNet.backProp(targetVals);
        
-       std::cout << "Net recent average error: " << myNet.getRecentAverageError() << std::endl;
-          
+       std::cout << "Net recent average error: " << myNet.getRecentAverageError() << std::endl;         
     }
+ 
+    // print the connection of all neurons
+    std::cout << "\n start printing weights: \n" << std::endl;
+    myNet.printAllConnections();
  
     return 0;
 }
