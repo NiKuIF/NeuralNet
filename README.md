@@ -12,3 +12,4 @@ the next Layer, the InputLayer isn't really a layer because we only
 set the OutputValues there. The Bias-Units have no connections from there
 previous layers.
 
+ADD: IT IS A NETBEANS-PROJECT
